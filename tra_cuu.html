@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tra c?u mã code</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding-top: 80px; }
+    input, button { padding: 10px; font-size: 16px; }
+    #result { margin-top: 30px; }
+    img { max-width: 90%; height: auto; margin-top: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>Nh?p mã code ?? xem hình ?nh</h1>
+  <input type="text" id="codeInput" placeholder="Nh?p tên...">
+  <button onclick="checkCode()">Xem k?t qu?</button>
+  <div id="result"></div>
+
+  <script>
+    const data = {
+      "Nguy?n Nh?t H?": "https://via.placeholder.com/400x200.png?text=Nguy?n+Nh?t+H?",
+      "Tr?n Ng?c Mai": "https://via.placeholder.com/400x200.png?text=Tr?n+Ng?c+Mai",
+      "Lê Th? Thuý Hoà": "https://via.placeholder.com/400x200.png?text=Lê+Th?+Thuý+Hoà",
+      "D??ng Th? Ng?c": "https://via.placeholder.com/400x200.png?text=D??ng+Th?+Ng?c"
+      // b?n có th? thêm ti?p ? ?ây...
+    };
+
+    function checkCode() {
+      const code = document.getElementById('codeInput').value.trim();
+      const imageUrl = data[code];
+      const resultDiv = document.getElementById('result');
+      if (imageUrl) {
+        resultDiv.innerHTML = `<p>K?t qu? cho mã: <strong>${code}</strong></p><img src="${imageUrl}" alt="Hình ?nh">`;
+      } else {
+        resultDiv.innerHTML = "<p style='color:red;'>Không tìm th?y mã code này.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
